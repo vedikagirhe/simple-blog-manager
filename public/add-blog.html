@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Create and publish a new blog post"
+    >
+
+    <title>Add Blog | Simple Blog Manager</title>
+</head>
+
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header>
+
+        <nav>
+
+            <!-- Website Logo / Name -->
+            <div>
+                <h1>📝 Simple Blog Manager</h1>
+                <p>Share ideas. Inspire readers.</p>
+            </div>
+
+
+            <!-- Navigation Links -->
+            <div>
+                <a href="index.html">Home</a>
+                |
+                <a href="add-blog.html">Add Blog</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <hr>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main>
+
+
+        <!-- Page Introduction -->
+
+        <section>
+
+            <p>✍️ CREATE & SHARE</p>
+
+            <h2>Write a New Blog Post</h2>
+
+            <p>
+                Share your ideas, experiences, knowledge, and stories
+                with readers around the world.
+            </p>
+
+            <p>
+                <a href="index.html">Home</a>
+                &gt;
+                Add Blog
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- ==================== BLOG FORM ==================== -->
+
+        <section>
+
+            <h2>Blog Details</h2>
+
+            <p>
+                Fill in the information below to create your blog post.
+            </p>
+
+
+            <form>
+
+
+                <!-- Blog Title -->
+
+                <fieldset>
+
+                    <legend>
+                        <strong>Basic Information</strong>
+                    </legend>
+
+                    <br>
+
+
+                    <div>
+
+                        <label for="title">
+                            <strong>Blog Title *</strong>
+                        </label>
+
+                        <br>
+
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="Enter an interesting blog title"
+                        >
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Author Name -->
+
+                    <div>
+
+                        <label for="author">
+                            <strong>Author Name *</strong>
+                        </label>
+
+                        <br>
+
+                        <input
+                            type="text"
+                            id="author"
+                            name="author"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Category -->
+
+                    <div>
+
+                        <label for="category">
+                            <strong>Category *</strong>
+                        </label>
+
+                        <br>
+
+                        <select
+                            id="category"
+                            name="category"
+                        >
+
+                            <option value="">
+                                Select a category
+                            </option>
+
+                            <option value="technology">
+                                Technology
+                            </option>
+
+                            <option value="web-development">
+                                Web Development
+                            </option>
+
+                            <option value="programming">
+                                Programming
+                            </option>
+
+                            <option value="learning">
+                                Learning
+                            </option>
+
+                            <option value="career">
+                                Career
+                            </option>
+
+                            <option value="lifestyle">
+                                Lifestyle
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Tags -->
+
+                    <div>
+
+                        <label for="tags">
+                            <strong>Tags</strong>
+                        </label>
+
+                        <br>
+
+                        <input
+                            type="text"
+                            id="tags"
+                            name="tags"
+                            placeholder="Example: HTML, Node.js, Web Development"
+                        >
+
+                        <p>
+                            Add multiple tags separated by commas.
+                        </p>
+
+                    </div>
+
+                </fieldset>
+
+
+                <br>
+
+
+                <!-- ==================== BLOG CONTENT ==================== -->
+
+
+                <fieldset>
+
+                    <legend>
+                        <strong>Blog Content</strong>
+                    </legend>
+
+                    <br>
+
+
+                    <!-- Short Description -->
+
+                    <div>
+
+                        <label for="description">
+                            <strong>Short Description *</strong>
+                        </label>
+
+                        <br>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            placeholder="Write a short introduction or summary of your blog..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Main Blog Content -->
+
+                    <div>
+
+                        <label for="content">
+                            <strong>Write Your Blog *</strong>
+                        </label>
+
+                        <br>
+
+                        <textarea
+                            id="content"
+                            name="content"
+                            rows="15"
+                            placeholder="Start writing your blog content here..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Featured Image URL -->
+
+                    <div>
+
+                        <label for="image">
+                            <strong>Featured Image URL</strong>
+                        </label>
+
+                        <br>
+
+                        <input
+                            type="url"
+                            id="image"
+                            name="image"
+                            placeholder="https://example.com/blog-image.jpg"
+                        >
+
+                        <p>
+                            Add an optional image URL for your blog post.
+                        </p>
+
+                    </div>
+
+                </fieldset>
+
+
+                <br>
+
+
+                <!-- ==================== PUBLISH SETTINGS ==================== -->
+
+
+                <fieldset>
+
+                    <legend>
+                        <strong>Publish Settings</strong>
+                    </legend>
+
+                    <br>
+
+
+                    <!-- Blog Status -->
+
+                    <div>
+
+                        <label for="status">
+                            <strong>Blog Status</strong>
+                        </label>
+
+                        <br>
+
+                        <select
+                            id="status"
+                            name="status"
+                        >
+
+                            <option value="publish">
+                                Publish Now
+                            </option>
+
+                            <option value="draft">
+                                Save as Draft
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- Confirmation -->
+
+                    <div>
+
+                        <input
+                            type="checkbox"
+                            id="confirm"
+                            name="confirm"
+                        >
+
+                        <label for="confirm">
+                            I confirm that my blog content is ready
+                            to be published.
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <br>
+
+
+                <!-- ==================== FORM BUTTONS ==================== -->
+
+
+                <div>
+
+                    <button type="submit">
+                        🚀 Publish Blog
+                    </button>
+
+                    <button type="reset">
+                        🔄 Clear Form
+                    </button>
+
+                    <a href="index.html">
+                        Cancel
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- ==================== WRITING TIPS ==================== -->
+
+
+        <aside>
+
+            <h3>💡 Tips for Writing a Great Blog</h3>
+
+            <ul>
+
+                <li>
+                    Choose a clear and interesting title.
+                </li>
+
+                <li>
+                    Write a short introduction that attracts readers.
+                </li>
+
+                <li>
+                    Organize your ideas into clear paragraphs.
+                </li>
+
+                <li>
+                    Select the most relevant category and tags.
+                </li>
+
+                <li>
+                    Review your content before publishing.
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+    </main>
+
+
+    <hr>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+
+    <footer>
+
+
+        <!-- About -->
+
+        <section>
+
+            <h3>📝 Simple Blog Manager</h3>
+
+            <p>
+                A simple platform to create, manage, and share
+                meaningful blog posts.
+            </p>
+
+            <p>
+                Full Stack Web Development Internship Project.
+            </p>
+
+        </section>
+
+
+        <!-- Quick Links -->
+
+        <section>
+
+            <h4>Quick Links</h4>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="add-blog.html">
+                        Add Blog
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- Categories -->
+
+        <section>
+
+            <h4>Popular Categories</h4>
+
+            <ul>
+
+                <li>Technology</li>
+
+                <li>Web Development</li>
+
+                <li>Programming</li>
+
+                <li>Learning</li>
+
+                <li>Career</li>
+
+            </ul>
+
+        </section>
+
+
+        <hr>
+
+
+        <p>
+            &copy; 2026 Simple Blog Manager.
+            All rights reserved.
+        </p>
+
+        <p>
+            Built with ❤️ as a Full Stack Web Development Internship Project.
+        </p>
+
+
+    </footer>
+
+
+</body>
+
+</html>
