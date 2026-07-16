@@ -1,158 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple Blog Manager - Read, create and manage blog posts">
-    <title>Simple Blog Manager | Home</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Simple Blog Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- ==================== HEADER ==================== -->
-    <header>
-        <nav>
-            <div>
-                <h1>Simple Blog Manager</h1>
-                <p>Share ideas. Inspire readers.</p>
-            </div>
+<!-- ================= NAVBAR ================= -->
+<header>
 
-            <div>
-                <a href="index.html">Home</a>
-                <a href="add-blog.html">Add Blog</a>
-            </div>
-        </nav>
-    </header>
+    <div class="logo">
+
+        <h2>📝 Simple Blog Manager</h2>
+
+        <p>Create • Share • Inspire</p>
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="#blogs">Blogs</a>
+
+        <a href="add-blog.html">Add Blog</a>
+
+        <a href="#newsletter">Newsletter</a>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span>WELCOME TO OUR BLOG</span>
+
+        <h1>
+            Share Your Stories<br>
+            With The World
+        </h1>
+
+        <p>
+
+            A beautiful blogging platform where you can
+            publish articles, share experiences,
+            and inspire thousands of readers.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="add-blog.html" class="btn">
+                Write Blog
+            </a>
+
+            <a href="#blogs" class="btn-outline">
+                Explore
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700"
+            alt="Blog">
+
+    </div>
+
+</section>
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Articles Published</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>120+</h2>
+        <p>Authors</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>25K+</h2>
+        <p>Readers</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>98%</h2>
+        <p>Positive Feedback</p>
+    </div>
+
+</section>
 
 
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main>
+<!-- ================= BLOGS ================= -->
 
-        <!-- Hero Section -->
-        <section>
-            <h2>Welcome to Simple Blog Manager</h2>
+<section id="blogs" class="blogs">
 
-            <p>
-                A simple place to create, manage, and share your thoughts
-                with readers.
-            </p>
+    <h2>Latest Articles</h2>
 
-            <a href="add-blog.html">Create Your First Blog</a>
-        </section>
+    <p class="section-text">
+        Explore trending blogs from different categories.
+    </p>
 
+    <div class="blog-grid">
 
-        <!-- Featured Blogs Section -->
-        <section>
+        <div class="card">
 
-            <div>
-                <p>OUR STORIES</p>
-                <h2>Latest Blog Posts</h2>
-                <p>Explore ideas, experiences, and useful insights.</p>
-            </div>
+            <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600"
+                alt="Programming">
 
+            <div class="card-content">
 
-            <!-- Blog Card 1 -->
-            <article>
-                <p>Technology</p>
+                <span class="category">
+💻 Technology
+</span>
 
                 <h3>Getting Started with Full Stack Development</h3>
 
                 <p>
-                    Discover the fundamentals of full stack development
-                    and understand how frontend and backend technologies
-                    work together.
+                    Learn how frontend and backend work together
+                    to build modern web applications.
                 </p>
+<p class="author">
+    👤 Admin • 📅 July 2026
+</p>
 
-                <p>
-                    <strong>By Admin</strong> |
-                    <time datetime="2026-07-14">July 14, 2026</time>
-                </p>
+<p class="reading">
+    ⏱ 5 min read
+</p>
+                <button>Read More</button>
 
-                <a href="#">Read More</a>
-            </article>
+            </div>
 
-
-            <!-- Blog Card 2 -->
-            <article>
-                <p>Learning</p>
-
-                <h3>Why Learning by Building Projects Matters</h3>
-
-                <p>
-                    Practical projects help developers strengthen their
-                    skills, solve real problems, and gain confidence
-                    through hands-on experience.
-                </p>
-
-                <p>
-                    <strong>By Admin</strong> |
-                    <time datetime="2026-07-14">July 14, 2026</time>
-                </p>
-
-                <a href="#">Read More</a>
-            </article>
-
-
-            <!-- Blog Card 3 -->
-            <article>
-                <p>Web Development</p>
-
-                <h3>Understanding HTML, CSS and JavaScript</h3>
-
-                <p>
-                    Learn how the three core technologies of the web
-                    work together to create modern and interactive
-                    websites.
-                </p>
-
-                <p>
-                    <strong>By Admin</strong> |
-                    <time datetime="2026-07-14">July 14, 2026</time>
-                </p>
-
-                <a href="#">Read More</a>
-            </article>
-
-        </section>
-
-
-        <!-- Call to Action Section -->
-        <section>
-            <h2>Have something to share?</h2>
-
-            <p>
-                Create your own blog post and share your ideas with readers.
-            </p>
-
-            <a href="add-blog.html">Write a Blog</a>
-        </section>
-
-    </main>
-
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-
-        <div>
-            <h3>Simple Blog Manager</h3>
-            <p>
-                A Full Stack Web Development Internship Project.
-            </p>
         </div>
 
-        <div>
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a>
-            <a href="add-blog.html">Add Blog</a>
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600"
+                alt="Coding">
+
+            <div class="card-content">
+
+                <span>📚 Learning</span>
+
+                <h3>Build Projects to Improve Your Skills</h3>
+
+                <p>
+                    The best way to become a developer is by
+                    creating real-world projects consistently.
+                </p>
+<p class="author">
+    👤 Admin • 📅 July 2026
+</p>
+
+<p class="reading">
+    ⏱ 5 min read
+</p>
+                <button>Read More</button>
+
+            </div>
+
         </div>
 
-        <hr>
 
-        <p>
-            &copy; 2026 Simple Blog Manager. All rights reserved.
-        </p>
+        <div class="card">
 
-    </footer>
+            <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600"
+                alt="Laptop">
 
+            <div class="card-content">
+
+                <span>🌐 Web Development</span>
+
+                <h3>HTML CSS JavaScript Complete Guide</h3>
+
+                <p>
+                    Learn the three core technologies that power
+                    almost every website on the internet.
+                </p>
+<p class="author">
+    👤 Admin • 📅 July 2026
+</p>
+
+<p class="reading">
+    ⏱ 5 min read
+</p>
+                <button>Read More</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="view-more">
+
+<a href="add-blog.html">
+
+View All Blogs →
+
+</a>
+
+</div>
+</section>
+<section id="newsletter" class="newsletter">
+
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <p>
+        Stay updated with the latest blogs, tutorials, and web development tips.
+    </p>
+
+    <form class="newsletter-form">
+
+        <input
+            type="email"
+            placeholder="Enter your email">
+
+        <button type="submit">
+            Subscribe
+        </button>
+
+    </form>
+
+</section>
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<h3>📝 Simple Blog Manager</h3>
+
+<p>
+A modern blogging platform where writers can
+create, publish and manage blog posts with ease.
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a><br>
+<a href="#blogs">Blogs</a><br>
+<a href="add-blog.html">Add Blog</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>support@simpleblog.com</p>
+
+<p>+91 XXXXX XXXXX</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 Simple Blog Manager
+
+</p>
+
+</footer>
 </body>
 </html>
