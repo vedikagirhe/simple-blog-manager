@@ -4,6 +4,9 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
+// Store blog posts
+let blogs = [];
+
 // Middleware
 app.use(express.json());
 
@@ -17,19 +20,20 @@ app.get("/", (req, res) => {
 
 // GET Blogs Route
 app.get("/blogs", (req, res) => {
-    res.json({
-        message: "GET request received successfully!"
-    });
+    res.json(blogs);
 });
-
 // POST Blogs Route
 app.post("/blogs", (req, res) => {
-    console.log(req.body);
 
-    res.json({
-        message: "POST request received successfully!",
-        data: req.body
+    const blog = req.body;
+
+    blogs.push(blog);
+
+    res.status(201).json({
+        message: "Blog added successfully!",
+        blog: blog
     });
+
 });
 
 // Start Server
