@@ -36,6 +36,31 @@ app.post("/blogs", (req, res) => {
 
 });
 
+// PUT Blog Route
+app.put("/blogs/:id", (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    blogs[id] = req.body;
+
+    res.json({
+        message: "Blog updated successfully!",
+        blog: blogs[id]
+    });
+
+});
+// DELETE Blog Route
+app.delete("/blogs/:id", (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    blogs.splice(id, 1);
+
+    res.json({
+        message: "Blog deleted successfully!"
+    });
+
+});
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
