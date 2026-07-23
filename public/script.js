@@ -83,3 +83,10 @@ if (blogList) {
     });
 
 }
+async function deleteBlog(id) {
+    await fetch(`/blogs/${id}`, {
+        method: "DELETE"
+    });
+
+    loadBlogs();
+}

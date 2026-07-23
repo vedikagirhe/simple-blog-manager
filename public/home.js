@@ -23,6 +23,10 @@ fetch("/blogs")
 
                     <button>Read More</button>
 
+<button onclick="deleteBlog(${blog.id})" class="delete-btn">
+    Delete
+</button>
+
                 </div>
 
             </div>
@@ -31,3 +35,16 @@ fetch("/blogs")
     });
 
 });
+async function deleteBlog(id) {
+
+    const response = await fetch(`/blogs/${id}`, {
+        method: "DELETE"
+    });
+
+    if (response.ok) {
+        location.reload();
+    } else {
+        alert("Failed to delete blog.");
+    }
+
+}

@@ -25,7 +25,10 @@ app.get("/blogs", (req, res) => {
 // POST Blogs Route
 app.post("/blogs", (req, res) => {
 
-    const blog = req.body;
+    const blog = {
+        id: Date.now(),
+        ...req.body
+    };
 
     blogs.push(blog);
 
@@ -35,7 +38,25 @@ app.post("/blogs", (req, res) => {
     });
 
 });
+app.delete("/blogs/:id", (req, res) => {
 
+    const id = Number(req.params.id);
+
+    const index = blogs.findIndex(blog => blog.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({
+            message: "Blog not found"
+        });
+    }
+
+    blogs.splice(index, 1);
+
+    res.json({
+        message: "Blog deleted successfully!"
+    });
+
+});
 // PUT Blog Route
 app.put("/blogs/:id", (req, res) => {
 
@@ -49,18 +70,7 @@ app.put("/blogs/:id", (req, res) => {
     });
 
 });
-// DELETE Blog Route
-app.delete("/blogs/:id", (req, res) => {
 
-    const id = parseInt(req.params.id);
-
-    blogs.splice(id, 1);
-
-    res.json({
-        message: "Blog deleted successfully!"
-    });
-
-});
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
