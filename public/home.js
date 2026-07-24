@@ -1,4 +1,5 @@
 const blogList = document.getElementById("blogList");
+let editId = null;
 
 fetch("/blogs")
 .then(response => response.json())
@@ -23,6 +24,10 @@ fetch("/blogs")
 
                     <button>Read More</button>
 
+<button onclick="editBlog(${blog.id})" class="edit-btn">
+    Edit
+</button>
+
 <button onclick="deleteBlog(${blog.id})" class="delete-btn">
     Delete
 </button>
@@ -46,5 +51,10 @@ async function deleteBlog(id) {
     } else {
         alert("Failed to delete blog.");
     }
+
+}
+function editBlog(id) {
+
+    window.location.href = `add-blog.html?id=${id}`;
 
 }

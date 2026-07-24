@@ -60,17 +60,28 @@ app.delete("/blogs/:id", (req, res) => {
 // PUT Blog Route
 app.put("/blogs/:id", (req, res) => {
 
-    const id = parseInt(req.params.id);
+    const id = Number(req.params.id);
 
-    blogs[id] = req.body;
+    const blog = blogs.find(blog => blog.id === id);
+
+    if (!blog) {
+        return res.status(404).json({
+            message: "Blog not found"
+        });
+    }
+
+    blog.title = req.body.title;
+    blog.author = req.body.author;
+    blog.category = req.body.category;
+    blog.description = req.body.description;
+    blog.content = req.body.content;
 
     res.json({
         message: "Blog updated successfully!",
-        blog: blogs[id]
+        blog: blog
     });
 
 });
-
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
