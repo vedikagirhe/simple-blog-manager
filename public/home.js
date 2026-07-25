@@ -1,9 +1,25 @@
 const blogList = document.getElementById("blogList");
-let editId = null;
+blogList.innerHTML = `
+    <h3 style="text-align:center;">
+        Loading blogs...
+    </h3>
+`;
 
 fetch("/blogs")
 .then(response => response.json())
 .then(blogs => {
+
+    if (blogs.length === 0) {
+
+        blogList.innerHTML = `
+            <div style="text-align:center; padding:40px;">
+                <h2>No Blogs Available</h2>
+                <p>Be the first to publish a blog!</p>
+            </div>
+        `;
+
+        return;
+    }
 
     blogList.innerHTML = "";
 
@@ -24,13 +40,13 @@ fetch("/blogs")
 
                     <button>Read More</button>
 
-<button onclick="editBlog(${blog.id})" class="edit-btn">
-    Edit
-</button>
+                    <button onclick="editBlog(${blog.id})" class="edit-btn">
+                        Edit
+                    </button>
 
-<button onclick="deleteBlog(${blog.id})" class="delete-btn">
-    Delete
-</button>
+                    <button onclick="deleteBlog(${blog.id})" class="delete-btn">
+                        Delete
+                    </button>
 
                 </div>
 
@@ -38,6 +54,18 @@ fetch("/blogs")
         `;
 
     });
+
+})
+.catch(error => {
+
+    console.error(error);
+
+    blogList.innerHTML = `
+        <div style="text-align:center; padding:40px;">
+            <h2>⚠ Unable to load blogs</h2>
+            <p>Please try again later.</p>
+        </div>
+    `;
 
 });
 async function deleteBlog(id) {
