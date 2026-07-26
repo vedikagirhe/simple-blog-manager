@@ -28,7 +28,10 @@ fetch("/blogs")
         blogList.innerHTML += `
             <div class="card">
 
-                <div class="card-content">
+    <img src="${blog.image || 'images/default-blog.jpg'}"
+         alt="${blog.title}">
+
+    <div class="card-content">
 
                     <span>${blog.category}</span>
 
@@ -40,7 +43,8 @@ fetch("/blogs")
 
 <hr>
 
-                    <button>Read More</button>
+
+                    <button onclick="readMore(${blog.id})">Read More</button>
 
                     <button onclick="editBlog(${blog.id})" class="edit-btn">
                         Edit
@@ -94,4 +98,28 @@ function editBlog(id) {
 
     window.location.href = `add-blog.html?id=${id}`;
 
+}
+function readMore(id) {
+
+    fetch("/blogs")
+        .then(response => response.json())
+        .then(blogs => {
+
+            const blog = blogs.find(blog => blog.id == id);
+
+            if (blog) {
+                alert(
+                    "Title: " + blog.title +
+                    "\n\nAuthor: " + blog.author +
+                    "\n\nCategory: " + blog.category +
+                    "\n\nDescription: " + blog.description +
+                    "\n\nContent:\n" + blog.content
+                );
+            }
+
+        });
+
+}
+function readMore(id) {
+    window.location.href = `blog.html?id=${id}`;
 }

@@ -37,6 +37,7 @@ blogForm.addEventListener("submit", function (event) {
     const title = document.getElementById("title").value.trim();
     const author = document.getElementById("author").value.trim();
     const category = document.getElementById("category").value;
+    const image = document.getElementById("image").value.trim();
     const description = document.getElementById("description").value.trim();
     const content = document.getElementById("content").value.trim();
     const confirm = document.getElementById("confirm").checked;
@@ -60,10 +61,10 @@ const blog = {
     title,
     author,
     category,
+    image,
     description,
     content
 };
-
 const url = blogId ? `/blogs/${blogId}` : "/blogs";
 const method = blogId ? "PUT" : "POST";
 
