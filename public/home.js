@@ -32,11 +32,13 @@ fetch("/blogs")
 
                     <span>${blog.category}</span>
 
-                    <h3>${blog.title}</h3>
+<h3>${blog.title}</h3>
 
-                    <p>${blog.description}</p>
+<p>${blog.description}</p>
 
-                    <p><strong>Author:</strong> ${blog.author}</p>
+<p><strong>Author:</strong> ${blog.author}</p>
+
+<hr>
 
                     <button>Read More</button>
 
@@ -70,11 +72,18 @@ fetch("/blogs")
 });
 async function deleteBlog(id) {
 
+    const confirmDelete = confirm("Are you sure you want to delete this blog?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
     const response = await fetch(`/blogs/${id}`, {
         method: "DELETE"
     });
 
     if (response.ok) {
+        alert("Blog deleted successfully!");
         location.reload();
     } else {
         alert("Failed to delete blog.");

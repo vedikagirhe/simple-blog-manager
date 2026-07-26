@@ -95,35 +95,62 @@ const blogList = document.getElementById("blogList");
 
 if (blogList) {
 
-const blogs = [
-    {
-        id: 1,
-        title: "Getting Started with Express.js",
-        author: "Vedika",
-        category: "Programming",
-        content: "This is my first blog."
-    }
-];
-blogs.forEach(blog => {
-    blogList.innerHTML += `
-        <div class="blog-card">
-            <h2>${blog.title}</h2>
-            <p>${blog.content}</p>
+    fetch("/blogs")
+        .then(response => response.json())
+        .then(blogs => {
 
-            <button onclick="editBlog(${blog.id})">Edit</button>
-            <button onclick="deleteBlog(${blog.id})">Delete</button>
-        </div>
-    `;
-});
+            
+            blogList.innerHTML = "";
+
+            blogs.forEach(blog => {
+
+                blogList.innerHTML += `
+<div class="card">
+
+    <div class="card-content">
+
+        <span>${blog.category}</span>
+
+        <h3>${blog.title}</h3>
+
+        <p>${blog.description}</p>
+
+        <p><strong>Author:</strong> ${blog.author}</p>
+
+        <button class="edit-btn" onclick="editBlog(${blog.id})">
+            ✏ Edit
+        </button>
+
+        <button class="delete-btn" onclick="deleteBlog(${blog.id})">
+            🗑 Delete
+        </button>
+
+    </div>
+
+</div>
+`;
+            });
+
+        });
 
 }
 async function deleteBlog(id) {
+
+    const answer = confirm("Are you sure you want to delete this blog?");
+
+    if (!answer) {
+        return;
+    }
+
     await fetch(`/blogs/${id}`, {
         method: "DELETE"
     });
 
-    loadBlogs();
+    location.reload();
+
 }
 function editBlog(id) {
-    alert("Edit button clicked for Blog ID: " + id);
+
+    window.location.href = `add-blog.html?id=${id}`;
+
 }

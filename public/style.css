@@ -14,7 +14,9 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-
+html{
+    scroll-behavior:smooth;
+}
 body{
     background:#f5f7fb;
     color:#333;
@@ -63,9 +65,16 @@ nav a{
 }
 
 nav a:hover{
-    color:#4f46e5;
-}
 
+    color:white;
+
+    background:#4f46e5;
+
+    padding:8px 15px;
+
+    border-radius:25px;
+
+}
 /* ===============================
    HERO SECTION
 ================================== */
@@ -201,16 +210,16 @@ section:first-child a:hover{
 
 }
 
+img{
+    max-width:100%;
+    height:auto;
+}
+
 .hero-right img{
-
     width:100%;
-
     max-width:520px;
-
     border-radius:20px;
-
     box-shadow:0 15px 40px rgba(0,0,0,.15);
-
 }
 
 /* =========================================
@@ -244,7 +253,12 @@ section:first-child a:hover{
     box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 }
-
+.stat-box{
+    transition:.3s;
+}
+.stat-box:hover{
+    transform:translateY(-8px);
+}
 .stat-box h2{
 
     color:#4f46e5;
@@ -290,15 +304,10 @@ section:first-child a:hover{
 }
 
 .blog-grid{
-
     display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
-
 }
-
 .card{
 
     background:white;
@@ -377,6 +386,49 @@ section:first-child a:hover{
 
     background:#3730a3;
 
+}
+/* =====================================
+   BLOG CARD (FOR JAVASCRIPT)
+===================================== */
+
+.blog-card{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+.edit-btn{
+    background:#16a34a;
+    color:white;
+    margin-right:10px;
+}
+
+.edit-btn:hover{
+    background:#15803d;
+}
+
+.delete-btn{
+    background:#dc2626;
+    color:white;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
+.blog-card:hover{
+    transform:translateY(-8px);
+}
+
+.blog-card h2{
+    color:#4f46e5;
+    margin-bottom:10px;
+}
+
+.blog-card p{
+    color:#666;
+    margin-bottom:12px;
 }
 /* =====================================
    ADD BLOG PAGE
@@ -476,6 +528,44 @@ button:hover{
     transform:translateY(-3px);
 
 }
+
+/* =====================================
+   NEWSLETTER
+===================================== */
+
+.newsletter{
+    width:90%;
+    margin:80px auto;
+    background:#fff;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.newsletter h2{
+    color:#4f46e5;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.newsletter-form{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.newsletter-form input{
+    flex:1;
+}
+
+.newsletter-form button{
+    margin:0;
+}
 /* =====================================
    FOOTER
 ===================================== */
@@ -530,6 +620,15 @@ footer a:hover{
     color:#fff;
 
 }
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
 
 footer hr{
 
@@ -544,7 +643,13 @@ footer hr{
 ===================================== */
 
 @media(max-width:900px){
+.footer-container{
 
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
 .hero{
 
     flex-direction:column;
@@ -558,7 +663,6 @@ footer hr{
     grid-template-columns:1fr;
 
 }
-
 .stats{
 
     grid-template-columns:repeat(2,1fr);
@@ -585,29 +689,30 @@ nav{
 
 @media(max-width:600px){
 
-.stats{
+    .newsletter-form{
+        flex-direction:column;
+    }
 
-    grid-template-columns:1fr;
+    .stats{
+        grid-template-columns:1fr;
+    }
 
-}
+    .blog-card button{
+        width:100%;
+        margin-top:10px;
+    }
 
-.hero h1{
+    .hero h1{
+        font-size:38px;
+    }
 
-    font-size:38px;
+    section h2{
+        font-size:30px;
+    }
 
-}
-
-section h2{
-
-    font-size:30px;
-
-}
-
-form{
-
-    padding:20px;
-
-}
+    form{
+        padding:20px;
+    }
 
 }
 .view-more{
@@ -628,4 +733,43 @@ form{
 
 .view-more a:hover{
     background:#3730a3;
+}
+.newsletter{
+    width:90%;
+    margin:80px auto;
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.newsletter h2{
+    color:#4f46e5;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.newsletter-form{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.newsletter-form input{
+    flex:1;
+}
+
+.newsletter-form button{
+    margin:0;
+}
+.card-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
