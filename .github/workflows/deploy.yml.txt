@@ -1,0 +1,30 @@
+name: NGINX EC2 Deployment Pipeline
+# This section defines exactly when this pipeline should trigger.
+# It will only run automatically when new code is pushed to either the 'dev' or 'main' branch.
+on:
+push:
+branches:
+- dev
+- main
+jobs:
+# ---------------------------------------------------
+# JOB 1: Deploy to the Development Server (Dev EC2)
+# ---------------------------------------------------
+deploy-dev-environment:
+# This condition ensures the job ONLY runs if the pushed branch is 'dev'.
+if: github.ref == 'refs/heads/dev'
+# This instructs GitHub to find and use the specific EC2 server you labeled as 'dev-agent'.
+runs-on: [self-hosted, dev-agent]
+steps:
+# Step 1: Download the latest code from your GitHub repository onto the EC2 server.
+- name: Step 1 - Download code from GitHub
+uses: actions/checkout@v4
+# Step 2: Securely transfer the downloaded files into the NGINX public directory.
+- name: Step 2 - Sync files using Rsync
+run: |
+echo "Starting file transfer to the Development Server..."
+sudo rsync -avz --delete --exclude '.git' --exclude '.github' ./ /var/www/html/
+# Step 3: Restart the NGINX service so the new files load properly.
+- name: Step 3 - Restart NGINX
+run: |
+sudo systemctl restart nginx
