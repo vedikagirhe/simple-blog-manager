@@ -1,31 +1,37 @@
 name: NGINX EC2 Deployment Pipeline
 
 on:
-  workflow_dispatch:
-
   push:
     branches:
-      - dev
       - main
 
+  workflow_dispatch:
+
 jobs:
-
-  deploy-dev-environment:
-
-    if: github.ref == 'refs/heads/dev'
-
+  deploy-to-ec2:
     runs-on: [self-hosted, dev-agent]
 
     steps:
-
-      - name: Step 1 - Download code from GitHub
+      # Step 1: Get latest code from GitHub
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Step 2 - Sync files using Rsync
+      # Step 2: Copy website files to NGINX
+      - name: Deploy website to NGINX
         run: |
-          echo "Starting file transfer to the Development Server..."
-          sudo rsync -avz --delete --exclude '.git' --exclude '.github' ./ /var/www/html/
+          echo "Starting deployment..."
 
-      - name: Step 3 - Restart NGINX
+          sudo rsync -avz --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            ./ /var/www/html/
+
+      # Step 3: Restart NGINX
+      - name: Restart NGINX
         run: |
           sudo systemctl restart nginx
+
+      # Step 4: Check NGINX status
+      - name: Check NGINX
+        run: |
+          sudo systemctl status nginx --no-pager
